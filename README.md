@@ -7,31 +7,31 @@ Things you may want to cover:
 
 ## groups_users テーブル
 
-| Column   | Type    | Options                        |
-| -------- | ------- | ------------------------------ |
-| user_id  | integer | null: false, foreign_key: true |
-| group_id | integer | null: false, foreign_key: true |
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| user   | references | null: false, foreign_key: true |
+| group  | references | null: false, foreign_key: true |
 
 ###Association
 
-- references :group
-- references :user
+- belongs_to :group
+- belongs_to :user
 
-## message テーブル
+## messages テーブル
 
-| Column   | Type    | Options |
-| -------- | ------- | ------- |
-| body     | text    |         |
-| image    | string  |         |
-| group_id | integer |         |
-| user_id  | integer |         |
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| body   | text       |                                |
+| image  | string     |                                |
+| group  | references | null: false, foreign_key: true |
+| user   | references | null: false, foreign_key: true |
 
 ###Association
 
--references:group
--references:user
+-belongs_to :group
+-belongs_to :user
 
-## user テーブル
+## users テーブル
 
 | Column   | Type   | Options     |
 | -------- | ------ | ----------- |
@@ -41,14 +41,17 @@ Things you may want to cover:
 
 ###Association
 
-has_many :groups
+-has_many :groups,through: :groups_users
+-has_many :groups_users
+-has_many :messages
 
-## group テーブル
+## groups テーブル
 
-| Column     | Type   | Options |
-| ---------- | ------ | ------- |
-| group_name | string |         |
+| Column | Type   | Options |
+| ------ | ------ | ------- |
+| name   | string |         |
 
 ###Association
-
--has_many :users
+-has_many :users,through: :groups_users
+-has_many :groups_users
+-has_many :messages
