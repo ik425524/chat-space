@@ -5,20 +5,53 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+## groups_users テーブル
 
-* System dependencies
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| user   | references | null: false, foreign_key: true |
+| group  | references | null: false, foreign_key: true |
 
-* Configuration
+###Association
 
-* Database creation
+- belongs_to :group
+- belongs_to :user
 
-* Database initialization
+## messages テーブル
 
-* How to run the test suite
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| body   | text       |                                |
+| image  | string     |                                |
+| group  | references | null: false, foreign_key: true |
+| user   | references | null: false, foreign_key: true |
 
-* Services (job queues, cache servers, search engines, etc.)
+###Association
 
-* Deployment instructions
+-belongs_to :group
+-belongs_to :user
 
-* ...
+## users テーブル
+
+| Column   | Type   | Options     |
+| -------- | ------ | ----------- |
+| name     | string | null: false |
+| email    | string | null: false |
+| password | string | null: false |
+
+###Association
+
+-has_many :groups,through: :groups_users
+-has_many :groups_users
+-has_many :messages
+
+## groups テーブル
+
+| Column | Type   | Options |
+| ------ | ------ | ------- |
+| name   | string |         |
+
+###Association
+-has_many :users,through: :groups_users
+-has_many :groups_users
+-has_many :messages
