@@ -1,0 +1,26 @@
+-# %h1 Messages#index
+-# %p Find me in app/views/messages/index.html.haml
+-# .wrapper
+-#   = render "side_bar"
+-#   = render "main_chat"
+.wrapper
+  .side-bar
+    .side-bar__user-name
+      .top-items
+        .top-items__name 
+          konishi
+        .top-items__icons 
+          = link_to "#",class:"link" do
+            %i.far.fa-edit.my-color
+          = link_to "#",class:"link" do
+            %i.fas.fa-cog.my-color
+    .side-bar__group-list
+      .list
+        .name
+          ik
+        .message
+          まだメッセージがありません
+  .chat-main
+    .chat-main__group-info
+    .chat-main__message-list
+    .chat-main__message-form
