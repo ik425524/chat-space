@@ -20,6 +20,11 @@
           ik
         .message
           まだメッセージがありません
+      .list
+        .name
+          ik
+        .message
+          まだメッセージがありません
   .chat-main
     .chat-main__group-info
       .group-info__left-box
@@ -31,4 +36,25 @@
         .grop-info__right-box__btn
           = link_to"Edit","#"
     .chat-main__message-list
+      .chat-main__message-list__group
+        .chat-main__message-list__group__name
+          ippei
+        .chat-main__message-list__group__date
+          2020/06/03(Wed)11:24:01
+      .chat-main__message-list__message
+        おはよう
+      .chat-main__message-list__group
+        .chat-main__message-list__group__name
+          ippei
+        .chat-main__message-list__group__date
+          2020/06/03(Wed)11:24:01
+      .chat-main__message-list__message
+        おはよう
     .chat-main__message-form
+      %form.new_message
+        .input-box
+          %input{type:"text",class:"input-box__text",placeholder:"type a message"}
+          %label{class:"input-box__image"}
+            = icon('fas','image')
+            %input{type:"file",class:"input-box__image__file"}
+        %input{type:"submit",class:"submit-btn"}
