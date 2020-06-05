@@ -7,7 +7,7 @@
   .side-bar
     .side-bar__user-name
       .top-items
-        .top-items__name 
+        %p.top-items__name 
           konishi
         .top-items__icons 
           = link_to "#",class:"link" do
@@ -16,14 +16,14 @@
             %i.fas.fa-cog.my-color
     .side-bar__group-list
       .list
-        .name
+        .list__name
           ik
-        .message
+        .list__message
           まだメッセージがありません
       .list
-        .name
+        .list__name
           ik
-        .message
+        .list__message
           まだメッセージがありません
   .chat-main
     .chat-main__group-info
@@ -57,4 +57,4 @@
           %label{class:"input-box__image"}
             = icon('fas','image')
             %input{type:"file",class:"input-box__image__file"}
-        %input{type:"submit",class:"submit-btn"}
+        %input{type:"submit",class:"submit-btn",value:"Send"}
