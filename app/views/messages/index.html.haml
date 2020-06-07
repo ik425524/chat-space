@@ -8,11 +8,11 @@
     .side-bar__user-name
       .top-items
         %p.top-items__name 
-          konishi
+          = current_user.name
         .top-items__icons 
           = link_to "#",class:"link" do
             %i.far.fa-edit.my-color
-          = link_to "#",class:"link" do
+          = link_to edit_user_path(current_user),class:"link" do
             %i.fas.fa-cog.my-color
     .side-bar__group-list
       .list
