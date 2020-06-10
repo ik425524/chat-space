@@ -1,2 +1,23 @@
--# <サイドバー>
- 
+.side-bar
+  .side-bar__user-name
+    .top-items
+      %p.top-items__name 
+        = current_user.name
+      .top-items__icons 
+        = link_to new_group_path class:"link" do
+          %i.far.fa-edit.my-color
+        = link_to edit_user_path(current_user),class:"link" do
+          %i.fas.fa-cog.my-color
+  .side-bar__group-list
+    - current_user.groups.each do |group|
+      .list
+        = link_to '#' do
+          .list__name
+            = group.name
+          .list__message
+            まだメッセージがありません
+    -# .list
+    -#   .list__name
+    -#     ik
+    -#   .list__message
+    -#     まだメッセージがありません
