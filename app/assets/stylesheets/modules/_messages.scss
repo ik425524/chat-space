@@ -105,6 +105,7 @@ $color-blue: #389ef0;
     &__message-list {
       height: calc(100vh - 190px);
       background-color: #fafafa;
+      overflow: hidden;
       &__group {
         display: flex;
         padding-top: 46px;
