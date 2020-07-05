@@ -65,7 +65,6 @@ $(function () {
     var last_message_id = $(".chat-main__message-list__group:last").data(
       "message-id"
     );
-    console.log(last_message_id);
     $.ajax({
       url: "api/messages",
       type: "get",
