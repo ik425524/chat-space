@@ -9,7 +9,7 @@ $(function () {
              ${message.created_at}
            </div>
          </div>
-         <div class="chat-main__message-list__message">
+         <div class="chat-main__message-list__message" data-message-id=${message.id}>
            <p class="lower-message__content">
              ${message.content}
            </p>
@@ -26,7 +26,7 @@ $(function () {
              ${message.created_at}
            </div>
          </div>
-         <div class="chat-main__message-list__message">
+         <div class="chat-main__message-list__message" data-message-id=${message.id}>
            <p class="lower-message__content">
              ${message.content}
            </p>
@@ -62,9 +62,10 @@ $(function () {
       });
   });
   var reloadMessages = function () {
-    var last_message_id = $(".chat-main__message-list__group:last").data(
+    var last_message_id = $(".chat-main__message-list__message:last").data(
       "message-id"
     );
+    console.log(last_message_id);
     $.ajax({
       url: "api/messages",
       type: "get",
@@ -79,7 +80,7 @@ $(function () {
           });
           $(".chat-main__message-list").append(insertHTML);
           $(".chat-main__message-list").animate({
-            scrollTop: $(".messages")[0].scrollHeight,
+            scrollTop: $(".chat-main__message-list")[0].scrollHeight,
           });
         }
       })
