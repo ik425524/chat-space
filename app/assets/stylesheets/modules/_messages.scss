@@ -53,12 +53,16 @@ $color-blue: #389ef0;
           color: $color-white;
           padding-top: 20px;
           margin-left: 20px;
+          list-style: none;
         }
         &__message {
           font-size: 11px;
           color: $color-white;
           margin-top: 5px;
           margin-left: 20px;
+        }
+        a {
+          text-decoration: none;
         }
       }
     }
